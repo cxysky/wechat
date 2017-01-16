@@ -28,7 +28,7 @@
     "files": [
     ],
     "psr-4": {
-      "houdunwang\\weixin\\": "src"
+      "houdunwang\\wechat\\": "src"
     }
   }
 }
