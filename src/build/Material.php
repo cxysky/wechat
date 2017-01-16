@@ -100,7 +100,7 @@ class Material extends Base {
 	//获取素材列表
 	public function lists( $param ) {
 		$url     = $this->apiUrl . "/cgi-bin/material/batchget_material?access_token={$this->access_token}";
-		$content = $this->curl( $url, urldecode( json_encode( $this->urlencodeArray( $param ) ) ) );
+		$content = $this->curl( $url, json_encode( $param, JSON_UNESCAPED_UNICODE ) );
 
 		return $this->get( $content );
 	}
