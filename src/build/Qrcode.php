@@ -9,47 +9,69 @@
  * '-------------------------------------------------------------------*/
 
 namespace houdunwang\wechat\build;
+
+use houdunwang\curl\Curl;
+
 /**
  * 二维码
  * Class Qrcode
+ *
  * @package houdunwang\wechat\build
  */
-class Qrcode extends Base {
-	/**
-	 * @param int $scene_id 自行设定的参数(第几个二维码）
-	 * @param int $expire 正数为临时二维码 0 永久二维码
-	 *
-	 * @return bool
-	 */
-	public function createQrcode( $scene_id = 0, $expire = 0 ) {
+class Qrcode extends Base
+{
+    protected $api = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=';
 
-		if ( $expire ) {
-			//临时二维码
-			$data = [
-				'action_name'    => 'QR_SCENE',
-				'expire_seconds' => 604800,
-				'action_info'    => [ 'scene' => [ 'scene_id' => $scene_id ] ]
-			];
-		} else {
-			//永久二维码只能在1~100000
-			if ( $scene_id < 1 || $scene_id > 100000 ) {
-				$scene_id = 1;
-			}
-			$data = [ 'action_name' => 'QR_SCENE', 'action_info' => [ 'scene' => [ 'scene_id' => $scene_id ] ] ];
-		}
+    /**
+     * 创建临时二维码
+     *
+     * @param array $param 参数
+     *
+     * @return bool
+     */
+    public function create(array $param)
+    {
+        $expire  = isset($param['expire_seconds']) ? $param['expire_seconds'] : 604800;
+        $data    = [
+            'action_name'    => 'QR_SCENE',
+            'expire_seconds' => $expire,
+            'action_info'    => ['scene' => $param],
+        ];
+        $url     = $this->api.$this->getAccessToken();
+        $content = Curl::post($url, json_encode($data));
 
-		$url     = $this->apiUrl . '/cgi-bin/qrcode/create?access_token=' . $this->getAccessToken();
-		$content = $this->curl( $url, json_encode( $data ) );
-		$result  = $this->get( $content, true );
+        return $this->get($content, true);
+    }
 
-		return isset( $result['ticket'] ) ? $result['ticket'] : false;
-	}
+    /**
+     * 创建永久二维码
+     *
+     * @param array $param 二维码参数
+     *
+     * @return bool
+     */
+    public function createLimitCode(array $param)
+    {
+        $data    = [
+            'action_name' => 'QR_LIMIT_SCENE',
+            'action_info' => ['scene' => $param],
+        ];
+        $url     = $this->api.$this->getAccessToken();
+        $content = Curl::post($url, json_encode($data));
 
-	//通过ticket换取二维码
-	public function getQrcode( $ticket ) {
-		$ticket = urlencode( $ticket );
+        return $this->get($content, true);
+    }
 
-		return "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=$ticket";
-	}
-
+    /**
+     * 获取二维码图片
+     *
+     * @param $ticket
+     *
+     * @return string
+     */
+    public function getQrcode($ticket)
+    {
+        return "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="
+            .urlencode($ticket);
+    }
 }

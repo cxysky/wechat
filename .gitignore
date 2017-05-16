@@ -3,3 +3,4 @@
 /vendor
 composer.lock
 /tests/config
+/tests/cert

@@ -1,7 +1,7 @@
 <?php
 /** .-------------------------------------------------------------------
  * |  Software: [HDPHP framework]
- * |      Site: www.hdphp.com
+ * |      Site: www.hdphp.com  www.hdcms.com
  * |-------------------------------------------------------------------
  * |    Author: 向军 <2300071698@qq.com>
  * |    WeChat: aihoudun
@@ -11,45 +11,32 @@
 namespace houdunwang\wechat\build;
 
 use houdunwang\curl\Curl;
-use houdunwang\wechat\build\material\Matter;
-use houdunwang\wechat\build\material\Media;
-use houdunwang\wechat\build\material\News;
 
 /**
- * 素材管理
- * Class Material
+ * 长链接转短链接接口
+ * Class Shorturl
  *
  * @package houdunwang\wechat\build
  */
-class Material extends Base
+class Shorturl extends Base
 {
-    use Media, Matter, News;
-
     /**
-     * 获取素材总数
+     * 长链接转短链接接口
+     *
+     * @param $longUrl
      *
      * @return array|mixed
      */
-    public function total()
+    public function makeShortUrl($longUrl)
     {
-        $url = $this->apiUrl
-            ."/cgi-bin/material/get_materialcount?access_token={$this->accessToken}";
-
-        return $this->get(Curl::get($url));
-    }
-
-    /**
-     * 获取素材列表
-     *
-     * @param $param
-     *
-     * @return array|mixed
-     */
-    public function lists($param)
-    {
-        $url     = $this->apiUrl
-            ."/cgi-bin/material/batchget_material?access_token="
+        $url   = $this->apiUrl
+            .'/cgi-bin/shorturl?access_token='
             .$this->getAccessToken();
+        $param = [
+            'action'   => 'long2short',
+            'long_url' => $longUrl,
+        ];
+
         $content = Curl::post($url,
             json_encode($param, JSON_UNESCAPED_UNICODE));
 

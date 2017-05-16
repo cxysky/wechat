@@ -8,29 +8,29 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace tests;
-
-use houdunwang\curl\Curl;
-use houdunwang\wechat\WeChat;
+namespace houdunwang\wechat\build\pay;
 
 /**
- * Class BaseTest
+ * 扫码支付
+ * Trait QrPay
  *
- * @package tests
+ * @package houdunwang\wechat\build\pay
  */
-class BaseTest extends Common
+trait QrPay
 {
     /**
-     * @var string
+     * 模式二
+     * 不需要在微信管理平台设置回调地址
+     *
+     * @param $data
+     *
+     * @return mixed
      */
-    protected $api = "http://dev.hdcms.com/component/wechat/tests/app/App.php?action=";
-
-    /**
-     * 获取令牌
-     */
-    public function test_access_token()
+    public function payByCode($data)
     {
-        $res = Curl::get($this->api.'getAccessToken');
-        $this->assertTrue(is_string($res));
+        $data['trade_type']       = 'NATIVE';
+        $data['spbill_create_ip'] = $_SERVER['SERVER_ADDR'];
+
+        return $this->unifiedorder($data);
     }
 }

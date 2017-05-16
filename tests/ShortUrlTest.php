@@ -10,27 +10,24 @@
 
 namespace tests;
 
-use houdunwang\curl\Curl;
 use houdunwang\wechat\WeChat;
 
 /**
- * Class BaseTest
+ * 长链接转短链接接口
+ * Class ShortUrlTest
  *
  * @package tests
  */
-class BaseTest extends Common
+class ShortUrlTest extends Common
 {
     /**
-     * @var string
+     * 长链接转短链接接口
      */
-    protected $api = "http://dev.hdcms.com/component/wechat/tests/app/App.php?action=";
-
-    /**
-     * 获取令牌
-     */
-    public function test_access_token()
+    public function test_makeShortUrl()
     {
-        $res = Curl::get($this->api.'getAccessToken');
-        $this->assertTrue(is_string($res));
+        $url
+             = 'http://bbs.houdunwang.com/forum.php?mod=viewthread&tid=105786&extra=page%3D1%26filter%3Dlastpost%26orderby%3Dlastpost%26dateline%3D86400%26typeid';
+        $res = WeChat::instance('shorturl')->makeShortUrl($url);
+        $this->assertEquals('ok', $res['errmsg']);
     }
 }

@@ -10,27 +10,29 @@
 
 namespace tests;
 
-use houdunwang\curl\Curl;
 use houdunwang\wechat\WeChat;
 
 /**
- * Class BaseTest
+ * 客服消息
+ * Class CustomMessageTest
  *
  * @package tests
  */
-class BaseTest extends Common
+class CustomMessageTest extends Common
 {
     /**
-     * @var string
+     * 发送文本
      */
-    protected $api = "http://dev.hdcms.com/component/wechat/tests/app/App.php?action=";
-
-    /**
-     * 获取令牌
-     */
-    public function test_access_token()
+    public function test_text()
     {
-        $res = Curl::get($this->api.'getAccessToken');
-        $this->assertTrue(is_string($res));
+        $data = [
+            "touser"  => "oGiQGuMR-fR_WeD6gLRKnqgMxYGo",
+            "msgtype" => "text",
+            "text"    => [
+                "content" => "Hello World",
+            ],
+        ];
+        $res  = WeChat::instance('CustomService')->send($data);
+        $this->assertEquals('ok', $res['errmsg']);
     }
 }
