@@ -13,6 +13,7 @@ namespace houdunwang\wechat\build;
 use houdunwang\config\Config;
 use houdunwang\curl\Curl;
 use houdunwang\dir\Dir;
+use houdunwang\request\Request;
 use houdunwang\wechat\build\traits\Sign;
 
 /**
@@ -64,9 +65,18 @@ class Base extends Error
     public function setMessage()
     {
         if (isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
-            $post          = $GLOBALS['HTTP_RAW_POST_DATA'];
-            $this->message = simplexml_load_string($post, 'SimpleXMLElement',
-                LIBXML_NOCDATA);
+            $content = $GLOBALS['HTTP_RAW_POST_DATA'];
+        } else {
+            $content = file_get_contents('php://input');
+        }
+
+        $xml_parser = xml_parser_create();
+        if ( ! xml_parse($xml_parser, $content, true)) {
+            xml_parser_free($xml_parser);
+
+            return false;
+        } else {
+            $this->message = simplexml_load_string($content, 'SimpleXMLElement', LIBXML_NOCDATA);
         }
     }
 
@@ -95,8 +105,8 @@ class Base extends Error
     public function valid()
     {
         if ( ! isset($_GET["echostr"]) || ! isset($_GET["signature"])
-            || ! isset($_GET["timestamp"])
-            || ! isset($_GET["nonce"])
+             || ! isset($_GET["timestamp"])
+             || ! isset($_GET["nonce"])
         ) {
             return false;
         }
@@ -139,15 +149,13 @@ class Base extends Error
         //缓存文件
         $file = $this->cacheDir.'/'.md5($this->appid.$this->appsecret).'.php';
         if ( ! $accessToken) {
-            if ($force === false && is_file($file)
-                && filemtime($file) + 7000 > time()
-            ) {
+            if ($force === false && is_file($file) && filemtime($file) + 7000 > time()) {
                 //缓存有效
                 $data = include $file;
             } else {
                 $url  = $this->apiUrl
-                    .'/cgi-bin/token?grant_type=client_credential&appid='
-                    .$this->appid.'&secret='.$this->appsecret;
+                        .'/cgi-bin/token?grant_type=client_credential&appid='
+                        .$this->appid.'&secret='.$this->appsecret;
                 $data = json_decode(Curl::get($url), true);
                 //获取失败
                 if (isset($data['errmsg'])) {

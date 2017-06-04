@@ -30,7 +30,7 @@ trait News
     public function addNewsImage($file)
     {
         $url     = $this->apiUrl."/cgi-bin/media/uploadimg?access_token="
-            .$this->getAccessToken();
+                   .$this->getAccessToken();
         $content = Curl::post($url, $this->getPostMedia($file));
 
         return $this->get($content);
@@ -45,10 +45,8 @@ trait News
      */
     public function addNews($articles)
     {
-        $url     = $this->apiUrl
-            ."/cgi-bin/material/add_news?access_token={$this->accessToken}";
-        $content = Curl::post($url,
-            json_encode($articles, JSON_UNESCAPED_UNICODE));
+        $url     = $this->apiUrl."/cgi-bin/material/add_news?access_token={$this->accessToken}";
+        $content = Curl::post($url, json_encode($articles, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }
@@ -63,7 +61,7 @@ trait News
     public function editNews($article)
     {
         $url     = $this->apiUrl
-            ."/cgi-bin/material/update_news?access_token={$this->accessToken}";
+                   ."/cgi-bin/material/update_news?access_token={$this->accessToken}";
         $content = Curl::post($url,
             json_encode($article, JSON_UNESCAPED_UNICODE));
 

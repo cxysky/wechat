@@ -30,8 +30,7 @@ trait Matter
      */
     public function addMaterial($type, $file)
     {
-        $url = $this->apiUrl
-            ."/cgi-bin/material/add_material?access_token={$this->accessToken}&type=$type";
+        $url = $this->apiUrl."/cgi-bin/material/add_material?access_token={$this->accessToken}&type=$type";
 
         return $this->get(Curl::post($url, $this->getPostMedia($file)));
     }
@@ -47,7 +46,7 @@ trait Matter
     public function addVideoMaterial($file, array $description)
     {
         $url                 = $this->apiUrl
-            ."/cgi-bin/material/add_material?access_token={$this->accessToken}&type=video";
+                               ."/cgi-bin/material/add_material?access_token={$this->accessToken}&type=video";
         $post                = $this->getPostMedia($file);
         $post['description'] = json_encode($description,
             JSON_UNESCAPED_UNICODE);
@@ -65,7 +64,7 @@ trait Matter
     public function getMaterial($mediaId)
     {
         $url  = $this->apiUrl
-            ."/cgi-bin/material/get_material?access_token={$this->accessToken}";
+                ."/cgi-bin/material/get_material?access_token={$this->accessToken}";
         $json = '{"media_id":"'.$mediaId.'"}';
 
         return $this->get(Curl::post($url, $json));
@@ -81,7 +80,7 @@ trait Matter
     public function delMaterial($media_id)
     {
         $url  = $this->apiUrl
-            ."/cgi-bin/material/del_material?access_token={$this->accessToken}";
+                ."/cgi-bin/material/del_material?access_token={$this->accessToken}";
         $json = '{"media_id":"'.$media_id.'"}';
 
         return $this->get(Curl::post($url, $json));

@@ -30,7 +30,7 @@ trait SendAll
     public function sendAll($data)
     {
         $url = $this->apiUrl.'/cgi-bin/message/mass/sendall?access_token='
-            .$this->getAccessToken();
+               .$this->getAccessToken();
 
         $content = Curl::post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
 
@@ -46,8 +46,7 @@ trait SendAll
      */
     public function preview($data)
     {
-        $url = $this->apiUrl.'/cgi-bin/message/mass/preview?access_token='
-            .$this->getAccessToken();
+        $url = $this->apiUrl.'/cgi-bin/message/mass/preview?access_token='.$this->getAccessToken();
 
         $content = Curl::post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
 
@@ -64,7 +63,7 @@ trait SendAll
     public function delMassMessage($data)
     {
         $url = $this->apiUrl.'/cgi-bin/message/mass/delete?access_token='
-            .$this->getAccessToken();
+               .$this->getAccessToken();
 
         $content = Curl::post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
 
@@ -73,6 +72,7 @@ trait SendAll
 
     /**
      * 查询群发消息发送状态
+     *
      * @param $data
      *
      * @return mixed
@@ -80,7 +80,7 @@ trait SendAll
     public function getMassMessageState($data)
     {
         $url = $this->apiUrl.'/cgi-bin/message/mass/get?access_token='
-            .$this->getAccessToken();
+               .$this->getAccessToken();
 
         $content = Curl::post($url, json_encode($data, JSON_UNESCAPED_UNICODE));
 
@@ -89,12 +89,13 @@ trait SendAll
 
     /**
      * 群发消息推送事件
+     *
      * @return bool
      */
     public function isMassMessage()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == 'MASSSENDJOBFINISH'
-            && isset($this->message->TotalCount);
+               && $this->message->Event == 'MASSSENDJOBFINISH'
+               && isset($this->message->TotalCount);
     }
 }
