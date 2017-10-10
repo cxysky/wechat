@@ -8,9 +8,10 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\oauth;
 
 use houdunwang\curl\Curl;
+use houdunwang\wechat\build\Base;
 
 /**
  * 网页授权获取用户基本信息
@@ -18,7 +19,7 @@ use houdunwang\curl\Curl;
  *
  * @package houdunwang\wechat\build
  */
-class Oauth extends Base
+class App extends Base
 {
     /**
      * 公共请求方法

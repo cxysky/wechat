@@ -1,29 +1,26 @@
 <?php
 /** .-------------------------------------------------------------------
  * |  Software: [HDPHP framework]
- * |      Site: www.hdphp.com
+ * |      Site: www.hdphp.com  www.hdcms.com
  * |-------------------------------------------------------------------
  * |    Author: 向军 <2300071698@qq.com>
  * |    WeChat: aihoudun
+ * |     Weibo: http://weibo.com/houdunwangxj
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\button;
 
-use houdunwang\curl\Curl;
-use houdunwang\wechat\build\button\Event;
-use houdunwang\wechat\build\button\Special;
+use Curl;
 
 /**
- * 微信菜单管理
- * Class Button
+ * 菜单基本功能
+ * Trait Base
  *
- * @package houdunwang\wechat\build
+ * @package houdunwang\wechat\build\button
  */
-class Button extends Base
+trait Basic
 {
-    use Event, Special;
-
     /**
      * 获取自定义菜单配置接口
      *
@@ -32,8 +29,7 @@ class Button extends Base
     public function getCurrentSelfMenuInfo()
     {
         $url     = $this->apiUrl
-            .'/cgi-bin/get_current_selfmenu_info?access_token='
-            .$this->getAccessToken();
+                   .'/cgi-bin/get_current_selfmenu_info?access_token='.$this->getAccessToken();
         $content = Curl::get($url);
 
         return $this->get($content);
@@ -48,8 +44,7 @@ class Button extends Base
      */
     public function create($button)
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/create?access_token='
-            .$this->getAccessToken();
+        $url     = $this->apiUrl.'/cgi-bin/menu/create?access_token='.$this->getAccessToken();
         $content = Curl::post($url,
             json_encode($button, JSON_UNESCAPED_UNICODE));
 
@@ -63,8 +58,7 @@ class Button extends Base
      */
     public function query()
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/get?access_token='
-            .$this->getAccessToken();
+        $url     = $this->apiUrl.'/cgi-bin/menu/get?access_token='.$this->getAccessToken();
         $content = Curl::get($url);
 
         return $this->get($content);
@@ -77,8 +71,7 @@ class Button extends Base
      */
     public function flush()
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/delete?access_token='
-            .$this->getAccessToken();
+        $url     = $this->apiUrl.'/cgi-bin/menu/delete?access_token='.$this->getAccessToken();
         $content = Curl::get($url);
 
         return $this->get($content);

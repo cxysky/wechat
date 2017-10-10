@@ -13,11 +13,8 @@ class WeChatProvider extends Provider
 
     public function register()
     {
-        $this->app->single(
-            'WeChat',
-            function () {
-                return new WeChat();
-            }
-        );
+        $this->app->single('WeChat', function () {
+            return new WeChat();
+        });
     }
 }

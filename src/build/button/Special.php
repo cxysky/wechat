@@ -29,10 +29,8 @@ trait Special
      */
     public function createSpecialButton($button)
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/addconditional?access_token='
-            .$this->getAccessToken();
-        $content = Curl::post($url,
-            json_encode($button, JSON_UNESCAPED_UNICODE));
+        $url     = $this->apiUrl.'/cgi-bin/menu/addconditional?access_token='.$this->getAccessToken();
+        $content = Curl::post($url, json_encode($button, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }
@@ -46,11 +44,9 @@ trait Special
      */
     public function delSpecialButton($menuId)
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/delconditional?access_token='
-            .$this->getAccessToken();
+        $url     = $this->apiUrl.'/cgi-bin/menu/delconditional?access_token='.$this->getAccessToken();
         $post    = ['menuid' => $menuId];
-        $content = Curl::post($url,
-            json_encode($post, JSON_UNESCAPED_UNICODE));
+        $content = Curl::post($url, json_encode($post, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }
@@ -64,11 +60,9 @@ trait Special
      */
     public function trySpecialButton($userId)
     {
-        $url     = $this->apiUrl.'/cgi-bin/menu/trymatch?access_token='
-            .$this->getAccessToken();
+        $url     = $this->apiUrl.'/cgi-bin/menu/trymatch?access_token='.$this->getAccessToken();
         $post    = ['user_id' => $userId];
-        $content = Curl::post($url,
-            json_encode($post, JSON_UNESCAPED_UNICODE));
+        $content = Curl::post($url, json_encode($post, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }

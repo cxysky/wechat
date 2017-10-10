@@ -8,10 +8,9 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\customservice;
 
-use houdunwang\wechat\build\customservice\CustomManage;
-use houdunwang\wechat\build\customservice\CustomMessage;
+use houdunwang\wechat\build\Base;
 
 /**
  * 客服接口
@@ -19,7 +18,7 @@ use houdunwang\wechat\build\customservice\CustomMessage;
  *
  * @package houdunwang\wechat\build
  */
-class CustomService extends Base
+class App extends Base
 {
     use CustomManage, CustomMessage;
 }

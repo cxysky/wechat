@@ -13,8 +13,9 @@ namespace houdunwang\wechat\build;
 use houdunwang\config\Config;
 use houdunwang\curl\Curl;
 use houdunwang\dir\Dir;
-use houdunwang\request\Request;
-use houdunwang\wechat\build\traits\Sign;
+use houdunwang\wechat\build\common\Error;
+use houdunwang\wechat\build\common\Sign;
+use houdunwang\wechat\build\common\Xml;
 
 /**
  * 基础类
@@ -80,7 +81,26 @@ class Base extends Error
         }
     }
 
+    /**
+     * 获取消息内容
+     *
+     * @param string $name 消息字段
+     *
+     * @return null
+     */
     public function __get($name)
+    {
+        return isset($this->message->$name) ? $this->message->$name : null;
+    }
+
+    /**
+     * 获取指定消息内容
+     *
+     * @param string $name 变量名
+     *
+     * @return null
+     */
+    public function content($name)
     {
         return isset($this->message->$name) ? $this->message->$name : null;
     }
@@ -92,9 +112,10 @@ class Base extends Error
      */
     public function getMessageType()
     {
-        if (isset($this->message->MsgType)) {
-            return $this->message->MsgType;
-        }
+        //事件消息时取Event属性做为消息类型
+        $message = $this->getMessage();
+
+        return $message->MsgType == 'event' ? $message->Event : $message->MsgType;
     }
 
     /**
@@ -139,7 +160,7 @@ class Base extends Error
     /**
      * 设置accessToken
      *
-     * @param bool $force
+     * @param bool $force 强制设置
      *
      * @throws \Exception
      */
@@ -163,8 +184,7 @@ class Base extends Error
                 }
                 //缓存access_token
                 Dir::create($this->cacheDir);
-                file_put_contents($file,
-                    '<?php return '.var_export($data, true).';?>');
+                file_put_contents($file, '<?php return '.var_export($data, true).';?>');
             }
             $accessToken = $data['access_token'];
         }
@@ -180,7 +200,7 @@ class Base extends Error
      */
     public function instance($api)
     {
-        $class = '\houdunwang\wechat\build\\'.ucfirst($api);
+        $class = '\houdunwang\wechat\build\\'.strtolower($api).'\\App';
 
         return new $class();
     }

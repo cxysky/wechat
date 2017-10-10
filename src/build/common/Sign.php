@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\traits;
+namespace houdunwang\wechat\build\common;
 
 use houdunwang\config\Config;
 

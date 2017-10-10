@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\common;
 
 /**
  * 错误处理
@@ -162,7 +162,7 @@ class Error
         if ( ! is_array($data)) {
             return $response;
         } else if ( ! array_key_exists('errcode', $data)
-            || $data['errcode'] == 0
+                    || $data['errcode'] == 0
         ) {
             return $data;
         } else if (isset($data['errcode'])) {

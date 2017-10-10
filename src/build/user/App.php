@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\user;
 
 /**
  * 粉丝管理
@@ -17,14 +17,14 @@ namespace houdunwang\wechat\build;
  * @package houdunwang\wechat\build
  */
 use houdunwang\curl\Curl;
-use houdunwang\wechat\build\user\Black;
+use houdunwang\wechat\build\Base;
 
 /**
  * Class User
  *
  * @package houdunwang\wechat\build
  */
-class User extends Base
+class App extends Base
 {
     use Black;
 
@@ -38,7 +38,7 @@ class User extends Base
     public function setRemark($param)
     {
         $url     = $this->apiUrl.'/cgi-bin/user/info/updateremark?access_token='
-            .$this->getAccessToken();
+                   .$this->getAccessToken();
         $content = Curl::post($url,
             json_encode($param, JSON_UNESCAPED_UNICODE));
 
@@ -55,8 +55,8 @@ class User extends Base
     public function getUserInfo($openid)
     {
         $url     = $this->apiUrl
-            ."/cgi-bin/user/info?openid={$openid}&lang=zh_CN&access_token="
-            .$this->getAccessToken();
+                   ."/cgi-bin/user/info?openid={$openid}&lang=zh_CN&access_token="
+                   .$this->getAccessToken();
         $content = Curl::get($url);
 
         return $this->get($content);
@@ -72,7 +72,7 @@ class User extends Base
     public function getUserInfoLists($param)
     {
         $url     = $this->apiUrl.'/cgi-bin/user/info/batchget?access_token='
-            .$this->getAccessToken();
+                   .$this->getAccessToken();
         $content = Curl::post($url,
             json_encode($param, JSON_UNESCAPED_UNICODE));
 
@@ -81,6 +81,7 @@ class User extends Base
 
     /**
      * 获取用户列表
+     *
      * @param string $next_openid
      *
      * @return array|mixed
@@ -88,7 +89,7 @@ class User extends Base
     public function getUserLists($next_openid = '')
     {
         $url = $this->apiUrl
-            ."/cgi-bin/user/get?access_token=".$this->getAccessToken();
+               ."/cgi-bin/user/get?access_token=".$this->getAccessToken();
         if ($next_openid) {
             $url .= "&next_openid={$next_openid}";
         }

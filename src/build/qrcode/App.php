@@ -8,9 +8,10 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\qrcode;
 
 use houdunwang\curl\Curl;
+use houdunwang\wechat\build\Base;
 
 /**
  * 二维码
@@ -18,7 +19,7 @@ use houdunwang\curl\Curl;
  *
  * @package houdunwang\wechat\build
  */
-class Qrcode extends Base
+class App extends Base
 {
     protected $api = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=';
 
@@ -72,6 +73,6 @@ class Qrcode extends Base
     public function getQrcode($ticket)
     {
         return "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="
-            .urlencode($ticket);
+               .urlencode($ticket);
     }
 }

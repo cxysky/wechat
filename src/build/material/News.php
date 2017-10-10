@@ -62,8 +62,7 @@ trait News
     {
         $url     = $this->apiUrl
                    ."/cgi-bin/material/update_news?access_token={$this->accessToken}";
-        $content = Curl::post($url,
-            json_encode($article, JSON_UNESCAPED_UNICODE));
+        $content = Curl::post($url, json_encode($article, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }

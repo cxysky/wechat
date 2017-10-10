@@ -8,12 +8,12 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace houdunwang\wechat\build\pay;
 
 use houdunwang\config\Config;
 use houdunwang\curl\Curl;
 use houdunwang\tool\Tool;
-use houdunwang\wechat\build\pay\QrPay;
+use houdunwang\wechat\build\Base;
 
 /**
  * 微信支付
@@ -21,7 +21,7 @@ use houdunwang\wechat\build\pay\QrPay;
  *
  * @package houdunwang\wechat\build
  */
-class Pay extends Base
+class App extends Base
 {
     use QrPay;
     /**

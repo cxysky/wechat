@@ -18,6 +18,24 @@ namespace houdunwang\wechat\build\message;
  */
 trait Send
 {
+    //回复文本
+    protected static $REPLY_TYPE_TEXT = 'text';
+
+    //回复图文
+    protected static $REPLY_TYPE_IMAGE = 'image';
+
+    //回复语音
+    protected static $REPLY_TYPE_VOICE = 'voice';
+
+    //回复视频
+    protected static $REPLY_TYPE_VIDEO = 'video';
+
+    //音乐消息
+    protected static $REPLY_TYPE_MUSIC = 'music';
+
+    //图文信息
+    protected static $REPLY_TYPE_NEWS = 'news';
+
     /**
      * 回复文本消息
      *
@@ -34,7 +52,7 @@ trait Send
 <Content><![CDATA[%s]]></Content>
 </xml>';
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_TEXT,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_TEXT,
             $content);
         header('Content-type:application/xml');
         die($text);
@@ -58,7 +76,7 @@ trait Send
 </Image>
 </xml>';
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_IMAGE,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_IMAGE,
             $media_id);
         header('Content-type:application/xml');
         die($text);
@@ -82,7 +100,7 @@ trait Send
 </Voice>
 </xml>';
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_VOICE,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_VOICE,
             $media_id);
         header('Content-type:application/xml');
         die($text);
@@ -108,7 +126,7 @@ trait Send
 </Video>
 </xml>';
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_VIDEO,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_VIDEO,
             $video['media_id'], $video['title'], $video['description']);
         header('Content-type:application/xml');
         die($text);
@@ -136,7 +154,7 @@ trait Send
 </Music>
 </xml>';
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_MUSIC,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_MUSIC,
             $music['title'], $music['description'], $music['musicurl'],
             $music['hqmusicurl'], $music['thumbmediaid']);
         header('Content-type:application/xml');
@@ -170,12 +188,11 @@ trait Send
 </item>';
         $items = '';
         foreach ((array)$news as $n) {
-            $items .= sprintf($item, $n['title'], $n['discription'],
-                $n['picurl'], $n['url']);
+            $items .= sprintf($item, $n['title'], $n['discription'], $n['picurl'], $n['url']);
         }
 
         $text = sprintf($xml, $this->message->FromUserName,
-            $this->message->ToUserName, time(), self::REPLY_TYPE_NEWS,
+            $this->message->ToUserName, time(), self::$REPLY_TYPE_NEWS,
             count($news), $items);
 
         header('Content-type:application/xml');

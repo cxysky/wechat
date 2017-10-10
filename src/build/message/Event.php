@@ -16,13 +16,26 @@ namespace houdunwang\wechat\build\message;
  *
  * @package houdunwang\wechat\build\message
  */
-/**
- * Trait Event
- *
- * @package houdunwang\wechat\build\message
- */
 trait Event
 {
+    //关注事件
+    protected static $EVENT_TYPE_SUBSCRIBE = 'subscribe';
+
+    //取消关注事件
+    protected static $EVENT_TYPE_UNSUBSCRIBE = 'unsubscribe';
+
+    //未关注用户扫描二维码事件
+    protected static $EVENT_TYPE_UNSUBSCRIBE_SCAN = 'subscribe';
+
+    //关注用户扫描二维码事件
+    protected static $EVENT_TYPE_SUBSCRIBE_SCAN = 'SCAN';
+
+    //上报地理位置事件
+    protected static $EVENT_TYPE_LOCATION = 'LOCATION';
+
+    //点击菜单的事件类型
+    protected static $EVENT_TYPE_EVENT = 'event';
+
     /**
      * 关注
      *
@@ -31,7 +44,7 @@ trait Event
     public function isSubscribeEvent()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == self::EVENT_TYPE_SUBSCRIBE;
+               && $this->message->Event == self::$EVENT_TYPE_SUBSCRIBE;
     }
 
     /**
@@ -42,7 +55,7 @@ trait Event
     public function isUnSubscribeEvent()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == self::EVENT_TYPE_UNSUBSCRIBE;
+               && $this->message->Event == self::$EVENT_TYPE_UNSUBSCRIBE;
     }
 
     /**
@@ -53,7 +66,7 @@ trait Event
     public function isSubscribeScanEvent()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == self::EVENT_TYPE_UNSUBSCRIBE_SCAN;
+               && $this->message->Event == self::$EVENT_TYPE_UNSUBSCRIBE_SCAN;
     }
 
     /**
@@ -64,7 +77,7 @@ trait Event
     public function isScanEvent()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == self::EVENT_TYPE_SUBSCRIBE_SCAN;
+               && $this->message->Event == self::$EVENT_TYPE_SUBSCRIBE_SCAN;
     }
 
     /**
@@ -75,6 +88,6 @@ trait Event
     public function isLocationEvent()
     {
         return $this->message->MsgType == 'event'
-            && $this->message->Event == self::EVENT_TYPE_LOCATION;
+               && $this->message->Event == self::$EVENT_TYPE_LOCATION;
     }
 }

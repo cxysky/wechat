@@ -18,6 +18,27 @@ namespace houdunwang\wechat\build\message;
  */
 trait Basic
 {
+    //请求文本消息
+    protected static $MSG_TYPE_TEXT = 'text';
+
+    //请求图片消息
+    protected static $MSG_TYPE_IMAGE = 'image';
+
+    //请求语音消息
+    protected static $MSG_TYPE_VOICE = 'voice';
+
+    //请求地理位置消息
+    protected static $MSG_TYPE_LOCATION = 'location';
+
+    //请求链接消息
+    protected static $MSG_TYPE_LINK = 'link';
+
+    //请求小视频消息
+    protected static $MSG_TYPE_SMALL_VIDEO = 'shortvideo';
+
+    //请求视频消息
+    protected static $MSG_TYPE_VIDEO = 'video';
+
     /**
      * 文本消息
      *
@@ -25,7 +46,7 @@ trait Basic
      */
     public function isTextMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_TEXT;
+        return $this->message->MsgType == self::$MSG_TYPE_TEXT;
     }
 
     /**
@@ -35,7 +56,7 @@ trait Basic
      */
     public function isImageMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_IMAGE;
+        return $this->message->MsgType == self::$MSG_TYPE_IMAGE;
     }
 
     /**
@@ -45,7 +66,7 @@ trait Basic
      */
     public function isVoiceMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_VOICE;
+        return $this->message->MsgType == self::$MSG_TYPE_VOICE;
     }
 
     /**
@@ -55,7 +76,7 @@ trait Basic
      */
     public function isLocationMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_LOCATION;
+        return $this->message->MsgType == self::$MSG_TYPE_LOCATION;
     }
 
     /**
@@ -65,7 +86,7 @@ trait Basic
      */
     public function isLinkMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_LINK;
+        return $this->message->MsgType == self::$MSG_TYPE_LINK;
     }
 
     /**
@@ -75,7 +96,7 @@ trait Basic
      */
     public function isVideoMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_VIDEO;
+        return $this->message->MsgType == self::$MSG_TYPE_VIDEO;
     }
 
     /**
@@ -85,6 +106,6 @@ trait Basic
      */
     public function isSmallVideoMsg()
     {
-        return $this->message->MsgType == self::MSG_TYPE_SMALL_VIDEO;
+        return $this->message->MsgType == self::$MSG_TYPE_SMALL_VIDEO;
     }
 }
