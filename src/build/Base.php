@@ -125,10 +125,7 @@ class Base extends Error
      */
     public function valid()
     {
-        if ( ! isset($_GET["echostr"]) || ! isset($_GET["signature"])
-             || ! isset($_GET["timestamp"])
-             || ! isset($_GET["nonce"])
-        ) {
+        if ( ! isset($_GET["echostr"]) || ! isset($_GET["signature"]) || ! isset($_GET["timestamp"]) || ! isset($_GET["nonce"])) {
             return false;
         }
         $echoStr   = $_GET["echostr"];
@@ -140,7 +137,6 @@ class Base extends Error
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
-
         if ($tmpStr == $signature) {
             echo $echoStr;
             exit;
@@ -224,7 +220,6 @@ class Base extends Error
                 'media' => '@'.realpath($file),
             ];
         }
-
         return $data;
     }
 }
