@@ -48,7 +48,8 @@ trait Pay
      */
     public function payByCode()
     {
-        print_r($_SERVER);die;
+        print_r($_SERVER);
+        die;
         $data = [
             //订单总金额，单位为分
             'total_fee'    => 1,
@@ -82,9 +83,7 @@ trait Pay
             'out_trade_no' => 1494906587,
         ];
         $res  = WeChat::instance('pay')->orderQuery($data);
-        if ($res['return_code'] == 'SUCCESS'
-            && $res['result_code'] == 'SUCCESS'
-        ) {
+        if ($res['return_code'] == 'SUCCESS' && $res['result_code'] == 'SUCCESS') {
             //定单查询成功
             print_r($res);
         }

@@ -43,10 +43,17 @@ class App extends Base
         //支付完成时
         if (isset($_GET['done'])) {
             //支付成功后根据配置文件设置的链接地址跳转到成功页面
-            return [
-                'errcode'      => 'SUCCESS',
-                'out_trade_no' => $_GET['out_trade_no'],
-            ];
+            if ($_GET['done'] == 'success') {
+                return [
+                    'errcode'      => 'success',
+                    'out_trade_no' => $_GET['out_trade_no'],
+                ];
+            } else {
+                return [
+                    'errcode'      => 'error',
+                    'out_trade_no' => $_GET['out_trade_no'],
+                ];
+            }
         } else {
             $order['trade_type'] = 'JSAPI';
             $scope               = $this->instance('oauth')->snsapiBase();
@@ -81,9 +88,9 @@ class App extends Base
             },
             function (res) {
                 if (res.err_msg == "get_brand_wcpay_request:ok") {
-                    location.search += '&done=hdphp&out_trade_no={$order["out_trade_no"]}';
+                    location.search += '&done=success&out_trade_no={$order["out_trade_no"]}';
                 } else {
-                    alert('支付失败，请稍后再试');
+                    location.search += '&done=error&out_trade_no={$order["out_trade_no"]}';
                 }
             }
         );

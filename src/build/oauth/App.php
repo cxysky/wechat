@@ -31,19 +31,19 @@ class App extends Base
      */
     private function request($type, $qrCode = false)
     {
-        $status = isset($_GET['code']) && isset($_GET['state'])
-            && $_GET['state'] == 'STATE';
+        $status = isset($_GET['code']) && isset($_GET['state']) && $_GET['state'] == 'STATE';
         if ($status) {
             $url = $this->apiUrl."/sns/oauth2/access_token?appid="
-                .$this->appid."&secret=".$this->appsecret."&code=".$_GET['code']
-                ."&grant_type=authorization_code";
+                   .$this->appid."&secret=".$this->appsecret."&code=".$_GET['code']
+                   ."&grant_type=authorization_code";
+
             return $this->get(Curl::get($url));
         } else {
             $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
-                .$this->appid."&redirect_uri="
-                .urlencode($this->currentPageURL())
-                ."&response_type=code&scope=".$type
-                ."&state=STATE#wechat_redirect";
+                   .$this->appid."&redirect_uri="
+                   .urlencode($this->currentPageURL())
+                   ."&response_type=code&scope=".$type
+                   ."&state=STATE#wechat_redirect";
             if ($qrCode) {
                 \houdunwang\qrcode\QrCode::make($url);
             } else {
@@ -72,8 +72,7 @@ class App extends Base
     {
         $data = $this->request('snsapi_userinfo');
         if (isset($data['openid'])) {
-            $url = $this->apiUrl."/sns/userinfo?access_token="
-                .$data['access_token']."&openid=".$data['openid']."&lang=zh_CN";
+            $url = $this->apiUrl."/sns/userinfo?access_token=".$data['access_token']."&openid=".$data['openid']."&lang=zh_CN";
 
             return $this->get(Curl::get($url));
         }
@@ -95,7 +94,7 @@ class App extends Base
 
         if ($_SERVER["SERVER_PORT"] != "80") {
             $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]
-                .$_SERVER["REQUEST_URI"];
+                        .$_SERVER["REQUEST_URI"];
         } else {
             $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         }
