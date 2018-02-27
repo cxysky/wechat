@@ -72,7 +72,8 @@ class App extends Base
     {
         $data = $this->request('snsapi_userinfo');
         if (isset($data['openid'])) {
-            $url = $this->apiUrl."/sns/userinfo?access_token=".$data['access_token']."&openid=".$data['openid']."&lang=zh_CN";
+            $url = $this->apiUrl."/sns/userinfo?access_token=".$data['access_token']."&openid="
+                   .$data['openid']."&lang=zh_CN";
 
             return $this->get(Curl::get($url));
         }
@@ -93,10 +94,10 @@ class App extends Base
         $pageURL .= "://";
 
         if ($_SERVER["SERVER_PORT"] != "80") {
-            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]
+            $pageURL .= $_SERVER["HTTP_HOST"].":".$_SERVER["SERVER_PORT"]
                         .$_SERVER["REQUEST_URI"];
         } else {
-            $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+            $pageURL .= $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
         }
 
         return $pageURL;
