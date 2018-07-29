@@ -15,7 +15,7 @@ use houdunwang\tool\Tool;
 use Houdunwang\WeChat\Build\Base;
 
 /**
- * 微信红包
+ * 微信红包管理
  * Class cash
  *
  * @package Houdunwang\WeChat\Build
