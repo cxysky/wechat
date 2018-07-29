@@ -23,10 +23,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "\\Houdunwang\\WeChat\\LaravelServiceProvider"
+                "\\Houdunwang\\WeChat\\WeChatProvider"
             ],
             "aliases": {
-                "HDModule": "\\Houdunwang\\WeChat\\Factory"
+                "HDModule": "\\Houdunwang\\WeChat\\WeChatFacade"
             }
         }
     },
