@@ -1,4 +1,4 @@
-<?php namespace houdunwang\wechat;
+<?php namespace Houdunwang\WeChat;
 
 use houdunwang\framework\build\Provider;
 
@@ -9,11 +9,15 @@ class WeChatProvider extends Provider
 
     public function boot()
     {
+        //配置文件
+        $this->publishes([
+            __DIR__.'/Config.php' => config_path('hd_wechat.php'),
+        ]);
     }
 
     public function register()
     {
-        $this->app->single('WeChat', function () {
+        $this->app->single('HDWeChat', function () {
             return new WeChat();
         });
     }

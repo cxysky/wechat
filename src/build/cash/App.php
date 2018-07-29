@@ -8,17 +8,17 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\cash;
+namespace Houdunwang\WeChat\build\cash;
 
 use houdunwang\config\Config;
 use houdunwang\tool\Tool;
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\build\Base;
 
 /**
  * 微信红包
  * Class cash
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class App extends Base
 {

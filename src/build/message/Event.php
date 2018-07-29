@@ -8,13 +8,13 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\message;
+namespace Houdunwang\WeChat\build\message;
 
 /**
  * 事件消息
  * Trait Event
  *
- * @package houdunwang\wechat\build\message
+ * @package Houdunwang\WeChat\build\message
  */
 trait Event
 {

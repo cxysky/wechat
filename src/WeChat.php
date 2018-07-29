@@ -1,6 +1,6 @@
-<?php namespace houdunwang\wechat;
+<?php namespace Houdunwang\WeChat;
 
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\build\Base;
 
 /** .-------------------------------------------------------------------
  * |  Software: [HDCMS framework]
@@ -14,6 +14,21 @@ class WeChat
 {
     //连接
     protected static $link;
+    //配置
+    protected static $config = [];
+
+    public static function config(array $config)
+    {
+        self::$config = $config;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getConfig($name)
+    {
+        return self::$config[$name];
+    }
 
     public static function single()
     {

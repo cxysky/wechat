@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\common;
+namespace Houdunwang\WeChat\build\common;
 
 use houdunwang\config\Config;
 
@@ -16,7 +16,7 @@ use houdunwang\config\Config;
  * 签名
  * Class Sign
  *
- * @package houdunwang\wechat\build\traits
+ * @package Houdunwang\WeChat\build\traits
  */
 trait Sign
 {

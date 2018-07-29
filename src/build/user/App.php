@@ -8,21 +8,21 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\user;
+namespace Houdunwang\WeChat\build\user;
 
 /**
  * 粉丝管理
  * Class User
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 use houdunwang\curl\Curl;
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\build\Base;
 
 /**
  * Class User
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class App extends Base
 {

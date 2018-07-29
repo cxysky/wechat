@@ -8,13 +8,13 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\message;
+namespace Houdunwang\WeChat\build\message;
 
 /**
  * 消息类型
  * Trait Mold
  *
- * @package houdunwang\wechat\build\traits
+ * @package Houdunwang\WeChat\build\traits
  */
 trait Basic
 {

@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\message;
+namespace Houdunwang\WeChat\build\message;
 
 use houdunwang\curl\Curl;
 
@@ -16,7 +16,7 @@ use houdunwang\curl\Curl;
  * 群发消息
  * Trait SendAll
  *
- * @package houdunwang\wechat\build\message
+ * @package Houdunwang\WeChat\build\message
  */
 trait SendAll
 {

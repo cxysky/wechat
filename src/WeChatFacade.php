@@ -1,10 +1,27 @@
-<?php namespace houdunwang\wechat;
+<?php namespace Houdunwang\WeChat;
 
+/** .-------------------------------------------------------------------
+ * |      Site: www.hdcms.com
+ * |      Date: 2018/6/25 下午3:13
+ * |    Author: 向军大叔 <2300071698@qq.com>
+ * '-------------------------------------------------------------------*/
 
-use houdunwang\framework\build\Facade;
+use Illuminate\Support\Facades\Facade;
 
-class WeChatFacade extends Facade {
-	public static function getFacadeAccessor() {
-		return 'WeChat';
-	}
+/**
+ * Class Facade
+ *
+ * @package Houdunwang\Module
+ */
+class Factory extends Facade
+{
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
+    protected static function getFacadeAccessor()
+    {
+        return 'HDWeChat';
+    }
 }

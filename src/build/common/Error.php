@@ -8,13 +8,13 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\common;
+namespace Houdunwang\WeChat\build\common;
 
 /**
  * 错误处理
  * Class Error
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class Error
 {

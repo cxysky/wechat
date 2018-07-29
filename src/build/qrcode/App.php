@@ -8,16 +8,16 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\qrcode;
+namespace Houdunwang\WeChat\build\qrcode;
 
 use houdunwang\curl\Curl;
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\build\Base;
 
 /**
  * 二维码
  * Class Qrcode
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class App extends Base
 {

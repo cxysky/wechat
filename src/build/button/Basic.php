@@ -9,7 +9,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\button;
+namespace Houdunwang\WeChat\build\button;
 
 use Curl;
 
@@ -17,7 +17,7 @@ use Curl;
  * 菜单基本功能
  * Trait Base
  *
- * @package houdunwang\wechat\build\button
+ * @package Houdunwang\WeChat\build\button
  */
 trait Basic
 {

@@ -8,21 +8,21 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build;
+namespace Houdunwang\WeChat\build;
 
 use houdunwang\config\Config;
 use houdunwang\curl\Curl;
 use houdunwang\dir\Dir;
-use houdunwang\wechat\build\common\Error;
-use houdunwang\wechat\build\common\Sign;
-use houdunwang\wechat\build\common\Xml;
+use Houdunwang\WeChat\build\common\Error;
+use Houdunwang\WeChat\build\common\Sign;
+use Houdunwang\WeChat\build\common\Xml;
 use houdunwang\cache\Cache;
 
 /**
  * 基础类
  * Class Base
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class Base extends Error
 {
@@ -190,7 +190,7 @@ class Base extends Error
      */
     public function instance($api)
     {
-        $class = '\houdunwang\wechat\build\\' . strtolower($api) . '\\App';
+        $class = '\Houdunwang\WeChat\build\\' . strtolower($api) . '\\App';
 
         return new $class();
     }

@@ -4,7 +4,7 @@ include "../../vendor/autoload.php";
 
 
 \houdunwang\config\Config::loadFiles('../config');
-$data = \houdunwang\wechat\WeChat::instance('pay')->getNotifyMessage();
+$data = \Houdunwang\WeChat\WeChat::instance('pay')->getNotifyMessage();
 file_put_contents('abc.php', var_export($data, true));
 /**
  * 商户处理后同步返回给微信参数

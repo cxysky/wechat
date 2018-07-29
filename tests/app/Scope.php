@@ -11,7 +11,7 @@
 namespace tests\app;
 
 
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 /**
  * 微信网页授权

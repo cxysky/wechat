@@ -9,7 +9,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\js;
+namespace Houdunwang\WeChat\build\js;
 
 use houdunwang\curl\Curl;
 use houdunwang\cache\Cache;
@@ -19,7 +19,7 @@ use houdunwang\tool\Tool;
  * JSSDK
  * Trait Basic
  *
- * @package houdunwang\wechat\build\button
+ * @package Houdunwang\WeChat\build\button
  */
 trait Basic
 {

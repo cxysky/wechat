@@ -8,15 +8,15 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\button;
+namespace Houdunwang\WeChat\build\button;
 
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\build\Base;
 
 /**
  * 微信菜单管理
  * Class Button
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\build
  */
 class App extends Base
 {

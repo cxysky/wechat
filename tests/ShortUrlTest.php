@@ -10,7 +10,7 @@
 
 namespace tests;
 
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 /**
  * 长链接转短链接接口
