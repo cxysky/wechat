@@ -1,6 +1,5 @@
 <?php namespace Houdunwang\WeChat;
 
-use houdunwang\framework\build\Provider;
 
 class WeChatProvider extends Provider
 {
