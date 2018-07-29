@@ -1,6 +1,7 @@
 <?php namespace Houdunwang\WeChat;
 
 use Illuminate\Support\ServiceProvider;
+
 class WeChatProvider extends ServiceProvider
 {
     //延迟加载
