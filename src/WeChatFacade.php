@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @package Houdunwang\Module
  */
-class Factory extends Facade
+class WeChatFacade extends Facade
 {
     /**
      * Get the registered name of the component.
