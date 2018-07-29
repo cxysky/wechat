@@ -15,9 +15,14 @@ class WeChatProvider extends ServiceProvider
         ]);
     }
 
+    /**
+     * Register services.
+     *
+     * @return void
+     */
     public function register()
     {
-        $this->app->single('HDWeChat', function () {
+        $this->app->singleton('HDWeChat', function () {
             return new WeChat();
         });
     }
