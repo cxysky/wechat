@@ -40,7 +40,7 @@ class Base extends Error
 
     public function __construct()
     {
-        $this->appid     = WeChat::getConfig('appid');
+        $this->appid = WeChat::getConfig('appid');
         $this->appsecret = WeChat::getConfig('appsecret');
         $this->setAccessToken();
         $this->setMessage();
@@ -51,8 +51,11 @@ class Base extends Error
      *
      * @return mixed
      */
-    public function getMessage()
+    public function getMessage($key = null)
     {
+        if ($key) {
+            return isset($this->message[$key]) ? $this->message[$key] : null;
+        }
         return $this->message;
     }
 
@@ -61,9 +64,9 @@ class Base extends Error
      */
     public function setMessage()
     {
-        $content    = file_get_contents('php://input');
+        $content = file_get_contents('php://input');
         $xml_parser = xml_parser_create();
-        if ( ! xml_parse($xml_parser, $content, true)) {
+        if (!xml_parse($xml_parser, $content, true)) {
             xml_parser_free($xml_parser);
 
             return false;
@@ -117,18 +120,18 @@ class Base extends Error
      */
     public function valid()
     {
-        $status = ! isset($_GET["echostr"]) || ! isset($_GET["signature"])
-            || ! isset($_GET["timestamp"])
-            || ! isset($_GET["nonce"]);
+        $status = !isset($_GET["echostr"]) || !isset($_GET["signature"])
+            || !isset($_GET["timestamp"])
+            || !isset($_GET["nonce"]);
         if ($status) {
             return false;
         }
-        $echoStr   = $_GET["echostr"];
+        $echoStr = $_GET["echostr"];
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
-        $nonce     = $_GET["nonce"];
-        $token     = WeChat::getConfig('token');
-        $tmpArr    = [$token, $timestamp, $nonce];
+        $nonce = $_GET["nonce"];
+        $token = WeChat::getConfig('token');
+        $tmpArr = [$token, $timestamp, $nonce];
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
@@ -159,14 +162,14 @@ class Base extends Error
     {
         static $accessToken;
         $cacheInstance = new Cache;
-        if ( ! $accessToken) {
-            $cacheName = $this->appid.$this->appsecret.'_wechat_access_token_';
+        if (!$accessToken) {
+            $cacheName = $this->appid . $this->appsecret . '_wechat_access_token_';
             $cachePath = WeChat::getConfig('cache_path');
-            $data      = $cacheInstance->dir($cachePath)->get($cacheName);
-            if ($force === true || ! $data) {
-                $url  = $this->apiUrl
-                    .'/cgi-bin/token?grant_type=client_credential&appid='
-                    .$this->appid.'&secret='.$this->appsecret;
+            $data = $cacheInstance->dir($cachePath)->get($cacheName);
+            if ($force === true || !$data) {
+                $url = $this->apiUrl
+                    . '/cgi-bin/token?grant_type=client_credential&appid='
+                    . $this->appid . '&secret=' . $this->appsecret;
                 $data = json_decode(Curl::get($url), true);
                 //获取失败
                 if (isset($data['errmsg'])) {
@@ -190,7 +193,7 @@ class Base extends Error
      */
     public function instance($api)
     {
-        $class = '\Houdunwang\WeChat\Build\\'.strtolower($api).'\\App';
+        $class = '\Houdunwang\WeChat\Build\\' . strtolower($api) . '\\App';
         return new $class();
     }
 
@@ -210,7 +213,7 @@ class Base extends Error
             ];
         } else {
             $data = [
-                'media' => '@'.realpath($file),
+                'media' => '@' . realpath($file),
             ];
         }
 
