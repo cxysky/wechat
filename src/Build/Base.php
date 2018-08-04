@@ -107,8 +107,7 @@ class Base extends Error
         //事件消息时取Event属性做为消息类型
         $message = $this->getMessage();
 
-        return $message->MsgType == 'event' ? $message->Event
-            : $message->MsgType;
+        return $message->MsgType == 'event' ? $message->Event : $message->MsgType;
     }
 
     /**
@@ -192,7 +191,6 @@ class Base extends Error
     public function instance($api)
     {
         $class = '\Houdunwang\WeChat\Build\\'.strtolower($api).'\\App';
-
         return new $class();
     }
 
