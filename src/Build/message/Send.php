@@ -55,7 +55,7 @@ trait Send
             $this->message->ToUserName, time(), self::$REPLY_TYPE_TEXT,
             $content);
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 
     /**
@@ -79,7 +79,7 @@ trait Send
             $this->message->ToUserName, time(), self::$REPLY_TYPE_IMAGE,
             $media_id);
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 
     /**
@@ -103,7 +103,7 @@ trait Send
             $this->message->ToUserName, time(), self::$REPLY_TYPE_VOICE,
             $media_id);
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 
     /**
@@ -129,7 +129,7 @@ trait Send
             $this->message->ToUserName, time(), self::$REPLY_TYPE_VIDEO,
             $video['media_id'], $video['title'], $video['description']);
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 
     /**
@@ -158,7 +158,7 @@ trait Send
             $music['title'], $music['description'], $music['musicurl'],
             $music['hqmusicurl'], $music['thumbmediaid']);
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 
     /**
@@ -196,6 +196,6 @@ trait Send
             count($news), $items);
 
         header('Content-type:application/xml');
-        die($text);
+        return $text;
     }
 }
