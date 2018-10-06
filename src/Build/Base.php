@@ -120,12 +120,11 @@ class Base extends Error
      */
     public function valid()
     {
-        $status = !isset($_GET["echostr"]) || !isset($_GET["signature"])
-            || !isset($_GET["timestamp"])
-            || !isset($_GET["nonce"]);
+        $status = !isset($_GET["echostr"]) || !isset($_GET["signature"]) || !isset($_GET["timestamp"]) || !isset($_GET["nonce"]);
         if ($status) {
             return false;
         }
+
         $echoStr = $_GET["echostr"];
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
@@ -135,6 +134,7 @@ class Base extends Error
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
+        file_put_contents('a.php',WeChat::getConfig('token'));
         if ($tmpStr == $signature) {
             echo $echoStr;
             exit;
