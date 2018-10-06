@@ -20,8 +20,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "\\Houdunwang\\WeChat\\WeChatProvider"
-            ]
+                "Houdunwang\\WeChat\\WeChatProvider"
+            ],
+            "aliases": {
+            }
         }
     },
     "require": {
