@@ -11,7 +11,7 @@ class WeChatProvider extends ServiceProvider
     {
         //配置文件
         $this->publishes([
-            __DIR__ . '/Config.php' => config_path('hd_wechat.php'),
+            __DIR__ . '/config/wechat.php' => config_path('hd_upload.php'),
         ]);
     }
 
@@ -22,8 +22,8 @@ class WeChatProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(WeChat::class, function () {
-            return new WeChat();
+        $this->app->singleton(WeChat::class, function ($app) {
+            return new WeChat($app);
         });
     }
 }

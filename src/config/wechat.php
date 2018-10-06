@@ -1,5 +1,4 @@
 <?php
-//微信配置
 return [
     /*
     |--------------------------------------------------------------------------
@@ -8,7 +7,7 @@ return [
     | 微信绑定验证时使用的token, 需要与微信公众号后台保持一致
     | http://mp.weixin.qq.com/wiki/8/f9a0b8382e0b77d87b3bcc1ce6fbc104.html
     */
-    'token'          => '',
+    'token'          => env('wechat_token', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ return [
     |--------------------------------------------------------------------------
     | 用于缓存ACCESS_TOKEN等数据
     */
-    'cache_path'     => 'storage/houdunren/wechat',
+    'cache_path'     => env('wechat_cache_path', public_path() . '/cache/wechat'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +24,7 @@ return [
     | 需要与微信公众号后台保持一致
     | http://mp.weixin.qq.com/wiki/8/f9a0b8382e0b77d87b3bcc1ce6fbc104.html
     */
-    'encodingaeskey' => '',
+    'encodingaeskey' => env('wechat_encodingaeskey', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +32,7 @@ return [
     |--------------------------------------------------------------------------
     | 填写公众号认证后腾讯官网发来的邮件中的appid
     */
-    'appid'          => 'wxc47243ed572e273d',
+    'appid'          => env('wechat_appid', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +41,7 @@ return [
     | 公众平台API的权限获取所需密钥Key
     | 需要与微信公众号后台保持一致
     */
-    'appsecret'      => '2c1d1d3a3b9f054bcd60983083da68a3',
+    'appsecret'      => env('wechat_appsecret', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +49,7 @@ return [
     |--------------------------------------------------------------------------
     | 微信发来的邮件中的微信支付商户号
     */
-    'mch_id'         => '',
+    'mch_id'         => env('wechat_mch_id', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +59,7 @@ return [
     | 登录微信支付-商户平台 API安全中获取
     | https://pay.weixin.qq.com/index.php/core/cert/api_cert
     */
-    'key'            => '',
+    'key'            => env('wechat_key', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +68,7 @@ return [
     | 使用微信红包接口等功能时需要的证书
     | 请登录微信支付后台下载，并保证文件目录正确
     */
-    'apiclient_cert' => 'cert/apiclient_cert.pem',
-    'apiclient_key'  => 'cert/apiclient_key.pem',
-    'rootca'         => 'cert/rootca.pem',
+    'apiclient_cert' => env('wechat_apiclient_cert', 'cert/apiclient_cert.pem'),
+    'apiclient_key'  => env('wechat_apiclient_key', 'cert/apiclient_key.pem'),
+    'rootca'         => env('wechat_rootca', 'cert/rootca.pem'),
 ];

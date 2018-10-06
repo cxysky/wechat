@@ -23,6 +23,7 @@
                 "Houdunwang\\WeChat\\WeChatProvider"
             ],
             "aliases": {
+                "WeChat": "Houdunwang\\WeChat\\WeChatFacade"
             }
         }
     },
