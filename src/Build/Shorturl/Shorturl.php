@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\shorturl;
+namespace Houdunwang\WeChat\Build\Shorturl;
 
 use houdunwang\curl\Curl;
 use Houdunwang\WeChat\Build\Base;
@@ -19,7 +19,7 @@ use Houdunwang\WeChat\Build\Base;
  *
  * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Shorturl extends Base
 {
     /**
      * 长链接转短链接接口

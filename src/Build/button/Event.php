@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\button;
+namespace Houdunwang\WeChat\Build\Button;
 
 /**
  * 按钮消息类型

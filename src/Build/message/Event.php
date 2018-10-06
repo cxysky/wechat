@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\message;
+namespace Houdunwang\WeChat\Build\Message;
 
 /**
  * 事件消息

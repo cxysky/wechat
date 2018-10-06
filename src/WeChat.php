@@ -29,7 +29,6 @@ class WeChat
     public static function config(array $config)
     {
         self::$config = $config;
-//        return self::single();
     }
 
     /**

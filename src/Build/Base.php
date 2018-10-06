@@ -12,9 +12,9 @@ namespace Houdunwang\WeChat\Build;
 
 use houdunwang\config\Config;
 use Houdunwang\WeChat\Build\Cache;
-use Houdunwang\WeChat\Build\common\Error;
-use Houdunwang\WeChat\Build\common\Sign;
-use Houdunwang\WeChat\Build\common\Xml;
+use Houdunwang\WeChat\Build\Common\Error;
+use Houdunwang\WeChat\Build\Common\Sign;
+use Houdunwang\WeChat\Build\Common\Xml;
 use Houdunwang\WeChat\WeChat;
 
 /**
@@ -193,7 +193,7 @@ class Base extends Error
      */
     public function instance($api)
     {
-        $class = '\Houdunwang\WeChat\Build\\' . strtolower($api) . '\\App';
+        $class = '\Houdunwang\WeChat\Build\\' . ucfirst($api) . '\\'.ucfirst($api);
         return new $class();
     }
 

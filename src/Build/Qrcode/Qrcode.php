@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\qrcode;
+namespace Houdunwang\WeChat\Build\Qrcode;
 
 use houdunwang\curl\Curl;
 use Houdunwang\WeChat\Build\Base;
@@ -19,7 +19,7 @@ use Houdunwang\WeChat\Build\Base;
  *
  * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Qrcode extends Base
 {
     protected $api = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=';
 

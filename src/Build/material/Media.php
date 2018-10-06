@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\material;
+namespace Houdunwang\WeChat\Build\Material;
 
 use houdunwang\curl\Curl;
 

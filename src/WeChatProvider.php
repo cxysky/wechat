@@ -5,13 +5,13 @@ use Illuminate\Support\ServiceProvider;
 class WeChatProvider extends ServiceProvider
 {
     //延迟加载
-    public $defer = true;
+//    public $defer = true;
 
     public function boot()
     {
         //配置文件
         $this->publishes([
-            __DIR__ . '/config/wechat.php' => config_path('hd_upload.php'),
+            __DIR__ . '/config/wechat.php' => config_path('hd_wechat.php'),
         ]);
     }
 

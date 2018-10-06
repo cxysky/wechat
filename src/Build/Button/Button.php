@@ -8,17 +8,17 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\js;
+namespace Houdunwang\WeChat\Build\Button;
 
 use Houdunwang\WeChat\Build\Base;
 
 /**
- * JSSDK处理
- * Class App
+ * 微信菜单管理
+ * Class Button
  *
  * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Button extends Base
 {
-    use Basic;
+    use Basic, Event, Special;
 }

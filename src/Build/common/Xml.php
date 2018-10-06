@@ -7,7 +7,7 @@
  * |    WeChat: aihoudun
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
-namespace Houdunwang\WeChat\Build\common;
+namespace Houdunwang\WeChat\Build\Common;
 
 trait Xml {
 	/**

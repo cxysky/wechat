@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace Houdunwang\WeChat\Build\pay;
+namespace Houdunwang\WeChat\Build\Pay;
 
 /**
  * 扫码支付
