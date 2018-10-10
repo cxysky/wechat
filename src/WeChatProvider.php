@@ -22,7 +22,7 @@ class WeChatProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(WeChat::class, function ($app) {
+        $this->app->singleton('HDWeChat', function ($app) {
             return new WeChat($app);
         });
     }
