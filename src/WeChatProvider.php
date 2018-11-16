@@ -1,20 +1,29 @@
-<?php namespace houdunwang\wechat;
+<?php namespace Houdunwang\WeChat;
 
-use houdunwang\framework\build\Provider;
+use Illuminate\Support\ServiceProvider;
 
-class WeChatProvider extends Provider
+class WeChatProvider extends ServiceProvider
 {
     //延迟加载
-    public $defer = true;
+//    public $defer = true;
 
     public function boot()
     {
+        //配置文件
+        $this->publishes([
+            __DIR__ . '/config/wechat.php' => config_path('hd_wechat.php'),
+        ]);
     }
 
+    /**
+     * Register services.
+     *
+     * @return void
+     */
     public function register()
     {
-        $this->app->single('WeChat', function () {
-            return new WeChat();
+        $this->app->singleton('HDWeChat', function ($app) {
+            return new WeChat($app);
         });
     }
 }

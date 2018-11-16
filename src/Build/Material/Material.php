@@ -8,18 +8,18 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\material;
+namespace Houdunwang\WeChat\Build\Material;
 
 use houdunwang\curl\Curl;
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\Build\Base;
 
 /**
  * 素材管理
  * Class Material
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Material extends Base
 {
     use Media, Matter, News;
 

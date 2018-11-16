@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\material;
+namespace Houdunwang\WeChat\Build\Material;
 
 use houdunwang\curl\Curl;
 
@@ -16,7 +16,7 @@ use houdunwang\curl\Curl;
  * 临时素材管理
  * Trait Media
  *
- * @package houdunwang\wechat\material
+ * @package Houdunwang\WeChat\material
  */
 trait Media
 {

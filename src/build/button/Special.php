@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\button;
+namespace Houdunwang\WeChat\Build\Button;
 
 use houdunwang\curl\Curl;
 
@@ -16,7 +16,7 @@ use houdunwang\curl\Curl;
  * 个性化菜单
  * Trait Special
  *
- * @package houdunwang\wechat\build\button
+ * @package Houdunwang\WeChat\Build\button
  */
 trait Special
 {

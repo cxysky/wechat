@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\user;
+namespace Houdunwang\WeChat\Build\User;
 
 use houdunwang\curl\Curl;
 
@@ -16,7 +16,7 @@ use houdunwang\curl\Curl;
  * 黑名单管理
  * Trait Black
  *
- * @package houdunwang\wechat\build\user
+ * @package Houdunwang\WeChat\Build\user
  */
 trait Black
 {

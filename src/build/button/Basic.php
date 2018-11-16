@@ -9,15 +9,15 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\button;
+namespace Houdunwang\WeChat\Build\Button;
 
-use Curl;
+use Houdunwang\WeChat\Build\Curl;
 
 /**
  * 菜单基本功能
  * Trait Base
  *
- * @package houdunwang\wechat\build\button
+ * @package Houdunwang\WeChat\Build\button
  */
 trait Basic
 {
@@ -31,7 +31,6 @@ trait Basic
         $url     = $this->apiUrl
                    .'/cgi-bin/get_current_selfmenu_info?access_token='.$this->getAccessToken();
         $content = Curl::get($url);
-
         return $this->get($content);
     }
 
@@ -45,8 +44,7 @@ trait Basic
     public function create($button)
     {
         $url     = $this->apiUrl.'/cgi-bin/menu/create?access_token='.$this->getAccessToken();
-        $content = Curl::post($url,
-            json_encode($button, JSON_UNESCAPED_UNICODE));
+        $content = Curl::post($url, json_encode($button, JSON_UNESCAPED_UNICODE));
 
         return $this->get($content);
     }

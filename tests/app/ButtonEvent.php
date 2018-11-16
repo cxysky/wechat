@@ -10,7 +10,7 @@
 
 namespace tests\app;
 
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 /**
  * 菜单事件处理

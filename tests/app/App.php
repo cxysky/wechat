@@ -11,7 +11,7 @@
 namespace tests\app;
 
 use houdunwang\config\Config;
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 include '../../vendor/autoload.php';
 

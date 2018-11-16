@@ -8,7 +8,7 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\customservice;
+namespace Houdunwang\WeChat\Build\Customservice;
 
 use houdunwang\curl\Curl;
 
@@ -16,7 +16,7 @@ use houdunwang\curl\Curl;
  * 客服接口-发消息
  * Class Message
  *
- * @package houdunwang\wechat\build\customservice
+ * @package Houdunwang\WeChat\Build\Customservice
  */
 trait CustomMessage
 {

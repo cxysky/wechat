@@ -8,17 +8,17 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\message;
+namespace Houdunwang\WeChat\Build\Js;
 
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\Build\Base;
 
 /**
- * 消息管理
- * Class Message
+ * JSSDK处理
+ * Class App
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Js extends Base
 {
-    use  Event, Basic, Send, SendAll;
+    use Basic;
 }

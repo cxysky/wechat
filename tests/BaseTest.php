@@ -11,7 +11,7 @@
 namespace tests;
 
 use houdunwang\curl\Curl;
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 /**
  * Class BaseTest

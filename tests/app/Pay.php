@@ -12,7 +12,7 @@ namespace tests\app;
 
 
 use houdunwang\qrcode\QrCode;
-use houdunwang\wechat\WeChat;
+use Houdunwang\WeChat\WeChat;
 
 /**
  * 微信支付

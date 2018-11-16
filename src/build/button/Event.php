@@ -8,13 +8,13 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\button;
+namespace Houdunwang\WeChat\Build\Button;
 
 /**
  * 按钮消息类型
  * Trait Event
  *
- * @package houdunwang\wechat\build\button
+ * @package Houdunwang\WeChat\Build\button
  */
 trait Event
 {
@@ -41,7 +41,7 @@ trait Event
 
     //弹出地理位置选择器的事件推送
     protected static $BUTTON_EVENT_TYPE_LOCATION_SELECT = 'location_select';
-    
+
     /**
      * 点击菜单拉取消息时的事件推送
      *

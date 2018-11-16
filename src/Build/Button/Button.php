@@ -8,17 +8,17 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\customservice;
+namespace Houdunwang\WeChat\Build\Button;
 
-use houdunwang\wechat\build\Base;
+use Houdunwang\WeChat\Build\Base;
 
 /**
- * 客服接口
- * Class App
+ * 微信菜单管理
+ * Class Button
  *
- * @package houdunwang\wechat\build
+ * @package Houdunwang\WeChat\Build
  */
-class App extends Base
+class Button extends Base
 {
-    use CustomManage, CustomMessage;
+    use Basic, Event, Special;
 }

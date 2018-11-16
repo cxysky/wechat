@@ -8,13 +8,13 @@
  * | Copyright (c) 2012-2019, www.houdunwang.com. All Rights Reserved.
  * '-------------------------------------------------------------------*/
 
-namespace houdunwang\wechat\build\pay;
+namespace Houdunwang\WeChat\Build\Pay;
 
 /**
  * 扫码支付
  * Trait QrPay
  *
- * @package houdunwang\wechat\build\pay
+ * @package Houdunwang\WeChat\Build\pay
  */
 trait QrPay
 {
